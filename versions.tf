@@ -1,23 +1,14 @@
+# Based on HashiCorp learn-terraform-sentinel (MPL-2.0, Copyright (c) 2020 HashiCorp, Inc.)
+# https://github.com/hashicorp-education/learn-terraform-sentinel
+# Modified: removed remote backend and unused random provider; pinned aws provider to the 6.x series.
+
 terraform {
   required_providers {
-    random = {
-      source  = "hashicorp/random"
-      version = "3.0.1"
-    }
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 3.26.0"
+      version = "~> 6.0"
     }
   }
 
-  required_version = ">= 0.15"
-
-  backend "remote" {
-    organization = "<YOUR_TERRAFORM_ORG>"
-
-    workspaces {
-      name = "sentinel-example"
-    }
-  }
-
+  required_version = ">= 1.3"
 }
